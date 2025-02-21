@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Information Form</title>
     <link rel="stylesheet" href="{{ asset('css/signUp.css') }}">
-    <style>
+    <!-- <style>
         body { font-family: Arial, sans-serif; margin: 20px; }
         .container { width: 50%; margin: auto; padding: 20px; border: 1px solid #ccc; background: #f3f3f3; }
         input, button { width: 100%; padding: 10px; margin: 5px 0; }
         .result { margin-top: 20px; background: #ddd; padding: 10px; }
-    </style>
+    </style> -->
 </head>
 <body>
     <div class="container">
@@ -62,15 +62,41 @@
             <button type="submit">OK</button>
         </form>
 
+        <h2>Thông tin của User: </h2>
+        <!-- Dùng vòng foreach để in thông tin -->
+        <!-- @if(session()->has('users'))
+            <h2>Danh sách User đã nhập:</h2>
+            <ul>
+                @foreach(session('users') as $user)
+                    <li>
+                        <strong>Tên:</strong> {{ $user['name'] }} |
+                        <strong>Tuổi:</strong> {{ $user['age'] }} |
+                        <strong>Ngày:</strong> {{ $user['date'] }} |
+                        <strong>Phone:</strong> {{ $user['phone'] }} |
+                        <strong>Website:</strong> {{ $user['web'] }} |
+                        <strong>Địa chỉ:</strong> {{ $user['address'] }}
+                    </li>
+                @endforeach
+            </ul>
+        @endif -->
+
+
+        <!-- Dùng isset kiểm tra user có tồn tại hay khôngkhông -->
         @if(isset($user))
-            <h2>Thông tin đã nhập:</h2>
-            <p>Tên: {{ $user['name'] }}</p>
-            <p>Tuổi: {{ $user['age'] }}</p>
-            <p>Ngày tháng: {{ $user['date'] }}</p>
-            <p>Số điện thoại: {{ $user['phone'] }}</p>
-            <p>Website: {{ $user['web'] }}</p>
-            <p>Địa chỉ: {{ $user['address'] }}</p>
+                <p>Tên: {{ $user['name'] }}</p>
+                <p>Tuổi: {{ $user['age'] }}</p>  
+                <p>Ngày: {{ $user['date'] }}</p>  
+                <p>Phone: {{ $user['phone'] }}</p>  
+                <p>Website: {{ $user['web'] }} </p> 
+                <p>Địa chỉ: {{ $user['address'] }}</p> 
         @endif
+
+
+        <form action="/clear-session" method="POST">
+            @csrf
+            <button type="submit">Xóa User</button>
+        </form>
+
     </div>
 </body>
 </html>

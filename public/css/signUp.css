@@ -13,7 +13,7 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    width: 350px;
+    width: 45%;
     text-align: center;
 }
 
@@ -39,7 +39,7 @@ input {
 }
 
 button {
-    width: 100%;
+    width: 30%;
     background-color: #28a745;
     color: white;
     border: none;
