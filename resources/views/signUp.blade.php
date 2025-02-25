@@ -64,7 +64,7 @@
 
         <h2>Thông tin của User: </h2>
         <!-- Dùng vòng foreach để in thông tin -->
-        <!-- @if(session()->has('users'))
+        @if(session()->has('users'))
             <h2>Danh sách User đã nhập:</h2>
             <ul>
                 @foreach(session('users') as $user)
@@ -78,7 +78,7 @@
                     </li>
                 @endforeach
             </ul>
-        @endif -->
+        @endif
 
 
         <!-- Dùng isset kiểm tra user có tồn tại hay khôngkhông -->
